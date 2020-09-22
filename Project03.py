@@ -145,6 +145,3 @@ for i in fam_list:
 
 print("Families")
 print (famTable)
-
-
-
