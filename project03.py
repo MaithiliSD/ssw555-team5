@@ -42,18 +42,6 @@ def gedcomRead(fileName):
     for line in readFile:
         s = line.split()
         if(s != []):
-            if(s[0] == '2'):
-                if(s[1] == 'DATE'):
-                    date = s[4] + " " + s[3] + " " + s[2]
-                    if(dateID == 'BIRT'):
-                        indiData[3] = date
-                    if(dateID == 'DEAT'):
-                        indiData[4] = date
-                    if(dateID == 'MARR'):
-                        famData[3] = date
-                    if(dateID == 'DIV'):
-                        famData[4] = date
-
             if(s[0] == '1'):
                 if(s[1] == 'NAME'):
                     indiData[1] = s[2] + " " + lName(s[3])
@@ -77,6 +65,18 @@ def gedcomRead(fileName):
                     famData[2] = s[2]
                 if(s[1] == 'CHIL'):
                     famData[5].append(s[2])
+                    
+            if(s[0] == '2'):
+                if(s[1] == 'DATE'):
+                    date = s[4] + " " + s[3] + " " + s[2]
+                    if(dateID == 'BIRT'):
+                        indiData[3] = date
+                    if(dateID == 'DEAT'):
+                        indiData[4] = date
+                    if(dateID == 'MARR'):
+                        famData[3] = date
+                    if(dateID == 'DIV'):
+                        famData[4] = date
     
             if(s[0] == '0'):
                 if(indiVal == 1):
@@ -129,7 +129,7 @@ indi_list, fam_list = gedcomRead("project02_gedcom.ged")
 indi_list.sort()
 fam_list.sort()
 
-indiTable = PrettyTable(["ID", "Name" , "Sex", "Birth Date", "Age" ,  "Alive" , "Death Date" , "Child" , "Spouse"])
+indiTable = PrettyTable(["ID", "Name" , "Sex", "Birth Date", "Age" ,  "Alive" , "Death Date" , "Spouse" , "Child"])
 
 #adding the details about individuals to the table
 for i in indi_list:
