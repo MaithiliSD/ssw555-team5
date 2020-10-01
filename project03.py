@@ -145,3 +145,25 @@ for i in fam_list:
 
 print("Families")
 print (famTable)
+
+#User Story 
+''' Less than 150 years old'''
+def US07(): #  US07 Less then 150 years old
+    result= False  
+    
+
+    for i in (indi_list):
+        if (calculateAge(splitBdate(i[3])) < 150):
+            print("INDIVIDUAL: US07: "+" Less than 150 years old: Birth date "+ i[3])
+            result = True
+
+
+   
+    return result
+    
+def main():
+    # there are several gedcom files
+    """ myfamily.ged """
+    US07()
+
+main()
