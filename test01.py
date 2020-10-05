@@ -1,9 +1,9 @@
 import unittest
-from project03 import US07, US09
+from US import US07, US09
 
 
 class UserStoryTest(unittest.TestCase):
-
+# Test Cases for US07
     def test1(self):
         self.assertEqual(US07(), True)
     def test2(self):
@@ -15,7 +15,7 @@ class UserStoryTest(unittest.TestCase):
     def test5(self):
         self.assertIsNot(US07(), False)
 
-
+# Test Cases for US09
     def test6(self):
         self.assertEqual(US09(), True)
     def test7(self):
