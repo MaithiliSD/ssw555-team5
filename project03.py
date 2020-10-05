@@ -5,6 +5,7 @@
 from prettytable import PrettyTable
 from datetime import date
 import datetime
+from dateutil.relativedelta import relativedelta
 
 def famList():
     flist = [0 for i in range(6)]
@@ -146,6 +147,10 @@ for i in fam_list:
 print("Families")
 print (famTable)
 
+
+
+
+
 #User Story 
 ''' Less than 150 years old'''
 def US07(): #  US07 Less then 150 years old
@@ -156,14 +161,29 @@ def US07(): #  US07 Less then 150 years old
         if (calculateAge(splitBdate(i[3])) < 150):
             print("INDIVIDUAL: US07: "+" Less than 150 years old: Birth date "+ i[3])
             result = True
-
-
    
     return result
+
+
+def US09():
+    result= False  
+    print("US- 09- Birth before death of parents")
+    for f in fam_list:
+        for i in indi_list:
+            if i[0] == f[1]:
+               
+                if (isAlive(i[4])) == True:
+                    print("Child's Birth before death of parents")
+                    result = True
+    return result
+            
+                
     
+
 def main():
     # there are several gedcom files
     """ myfamily.ged """
     US07()
+    US09()
 
 main()
