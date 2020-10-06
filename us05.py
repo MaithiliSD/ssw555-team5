@@ -116,24 +116,6 @@ def MarriageBeforeDeath(list_fam, list_indi):
         print("The families with marriage dates after the death date:")
         print(marrBeforeDeath_list)
 
-def DivorceBeforeDeath(list_fam, list_indi):
-    dateList = []
-    for i in list_indi:
-        if(i[4] != 0):
-            if(getDeathDate(list_fam, i[1]) != None):     
-                if(i[4] > getDeathDate(list_fam, i[1])):
-                    dateList.append(i[0])
-                    print(i[0] + " have divorce dates after death dates")
-            if(getDeathDate(list_fam, i[2]) != None):
-                if(i[4] > getDeathDate(list_fam, i[2])):
-                    dateList.append(i[0])
-                    print(i[0] + " have divorce dates after death dates")
-    if(len(dateList) == 0):
-        print("There are no divorce after the death dates :)")
-    else:
-        print("These people have divorce dates after their death dates :( ")
-        print(dateList)
-
 def main(fileName):
     list_indi, list_fam = parseTheFile(fileName)
     list_indi.sort()
