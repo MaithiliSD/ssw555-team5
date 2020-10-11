@@ -46,39 +46,5 @@ def checkForOldParents(fam: Dict, ind: Dict, file: TextIO):
                     result: bool = False
     return result
 
-
-class TestCases(unittest.TestCase):
-    def test_checkForOldParents(self):
-    
-        f = open("Output.txt", "a+")
-        fam: Dict = {'F23':
-                         {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07',
-                          'CHIL': ['I19', 'I26', 'I30']},
-                     'F16': {'fam': 'F16', 'MARR': '12 DEC 2007'}}
-        fam2: Dict = {'F23': {'fam': 'F23', 'MARR': '14 FEB 1980', 'HUSB': 'I01', 'WIFE': 'I07', 'CHIL': ['I19']}}
-
-        ind1: Dict = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1900', 'sex': 'M', 'family': 'F23',
-                              'DEAT': '31 DEC 2013'},
-                      'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1902', 'sex': 'F',
-                              'family': 'F23',
-                              'DEAT': '31 DEC 2013'},
-                      'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1999', 'sex': 'M', 'family': 'F23',
-                              'DEAT': '31 DEC 2013'}}
-
-        ind2: Dict = {'I01': {'id': 'I01', 'name': 'Joe /Smith/', 'BIRT': '15 JUL 1960', 'sex': 'M', 'family': 'F23',
-                              'DEAT': '31 DEC 2013'},
-                      'I07': {'id': 'I07', 'name': 'Jennifer /Smith/', 'BIRT': '23 SEP 1960', 'sex': 'F',
-                              'family': 'F23'},
-                      'I19': {'id': 'I19', 'name': 'Dick /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
-                      'I26': {'id': 'I26', 'name': 'Jane /Smith/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
-                      'I30': {'id': 'I30', 'name': 'Mary /Test/', 'BIRT': '13 FEB 1981', 'sex': 'F', 'family': 'F23'},
-                      'I32': {'id': 'I32', 'name': 'Nick /Tary/', 'BIRT': '13 FEB 1981', 'sex': 'M', 'family': 'F23'},
-                      'I44': {'id': 'I44', 'name': 'Cersi /Lanister/', 'BIRT': '13 FEB 1981', 'sex': 'F',
-                              'family': 'F23'}}
-
-        self.assertTrue(checkForOldParents(fam, ind2, f))
-        self.assertFalse(checkForOldParents(fam2, ind1, f))
-
-
 if __name__ == '__main__':
     unittest.main(exit=False, verbosity=2)
