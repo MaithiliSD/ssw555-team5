@@ -1,8 +1,6 @@
 ## user story 03
 ## Maithili Deshmukh
 
-import unittest
-
 # individual list
 def individualList():
     output_list = [0 for i in range(7)]
@@ -85,41 +83,10 @@ def gedcomParse(file_name):
                         individual[4] = convertDateFormat(date)
     return list_individual
 
-class TestDeathBeforeBirth(unittest.TestCase):
-    
-    def test_death_birth(self):
-        list_individual = gedcomParse("project02_copy.ged")
-        list_individual.sort()
-        outputList = birthBeforeDeath(list_individual)
-        lenOutput = len(outputList);
-        self.assertEqual(lenOutput, 0, "Should be 0")
-        
-    def test_death_birth_2(self):
-        list_individual = gedcomParse("project02_copy.ged")
-        list_individual.sort()
-        outputList = birthBeforeDeath(list_individual)
-        lenOutput = len(outputList);
-        self.assertTrue((lenOutput==0), "Should be True")
-        
-    def test_death_birth_3(self):
-        list_individual = gedcomParse("project02_copy.ged")
-        list_individual.sort()
-        outputList = birthBeforeDeath(list_individual)
-        lenOutput = len(outputList);
-        self.assertFalse((lenOutput>0), "Should be False")
-        
-    def test_death_birth_4(self):
-        list_individual = gedcomParse("project02_copy.ged")
-        list_individual.sort()
-        outputList = birthBeforeDeath(list_individual)
-        lenOutput = len(outputList);
-        self.assertIs(lenOutput, 0, "Should be 0")
-
 def main(file_name):
-    # list_individual= gedcomParse(file_name)
-    # list_individual.sort()
-    # birthBeforeDeath(list_individual)
-    unittest.main()
+    list_individual= gedcomParse(file_name)
+    list_individual.sort()
+    birthBeforeDeath(list_individual)
 
-fileInput = 'project02_copy.ged'
+fileInput = 'project02_gedcom.ged'
 main(fileInput)
