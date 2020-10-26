@@ -127,6 +127,6 @@ def main(gedFileName):
     list_individual, list_family= gedcomParse(gedFileName)
     list_individual.sort()
     list_family.sort()
-    # individualAges(list_individual)
+    individualAges(list_individual)
 
 main('project02_gedcom.ged')
