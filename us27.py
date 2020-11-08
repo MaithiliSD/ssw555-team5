@@ -1,5 +1,9 @@
-## user story 03
+## user story 27
 ## Maithili Deshmukh
+
+from datetime import datetime
+
+dateList = []
 
 # individual list
 def individualList():
@@ -7,22 +11,19 @@ def individualList():
     output_list[5] = []
     return output_list
 
+# get last name
 def getLastName(str):
-    temp_var=''
+    lastName=''
     for i in str:
         if(i != '/'):
-            temp_var += i
-    return temp_var
+            lastName += i
+    return lastName
 
-# us03
-def birthBeforeDeath(list_individual):
-    birthBeforeDeath_list= []
-    for indi in list_individual:
-        if(indi[4] != 0):
-            if(indi[3] > indi[4]):
-                birthBeforeDeath_list.append(indi[0])
-                print("ERROR: INDIVIDUAL: US03: " + indi[0] + ": Died " + indi[4] + " before born " + indi[3])
-    return birthBeforeDeath_list
+# family list
+def familyList():
+    output_list = [0 for i in range(6)]
+    output_list[5] = []
+    return output_list
 
 # converting date into a standard format
 def convertDateFormat(date):
@@ -42,27 +43,55 @@ def convertDateFormat(date):
     if(m[2] in ['1', '2', '3', '4', '5', '6', '7', '8', '9']):
         m[2] = '0' + m[2]
     return (m[0] + '-' + m[1] + '-' + m[2])
-
-# parsing the gedcom file
-def gedcomParse(file_name):
-    f = open(file_name,'r')
+ 
+# us27    
+def individualAges(list_individual):
+    for i in (list_individual):
+        if (i[3] != 0):
+            dateOfBirth = i[3]
+            birthDate = datetime.strptime(dateOfBirth,"%Y-%m-%d")
+            if (i[4] != 0):
+                dateOfDeath = i[4]
+                deathDate = datetime.strptime(dateOfDeath,"%Y-%m-%d")
+                age = deathDate.year - birthDate.year
+                dateList.append(i)
+                print ("INDIVIDUAL: US27: s" + i[1] +" with age: " + str(age))
+            else:
+                currentAge = datetime.now().year - birthDate.year
+                dateList.append(i)
+                print ("INDIVIDUAL: US27: " + i[1] +" with age: " + str(currentAge))  
+    return dateList
+              
+# parsing the gedcom file 
+def gedcomParse(gedFileName):
+    f = open(gedFileName,'r')
     list_individual = []
+    list_family = []
     indi_on = 0
+    fam_on = 0
     individual = individualList()
+    family = familyList()
     for line in f:
         str = line.split()
         if(str != []):
             if(str[0] == '0'):
+                if(fam_on == 1):
+                    list_family.append(family)
+                    family = familyList()
+                    fam_on = 0
                 if(indi_on == 1):
                     list_individual.append(individual)
                     individual = individualList()
-                    indi_on = 0
+                    indi_on = 0               
                 if(str[1] in ['NOTE', 'HEAD', 'TRLR']):
                     pass
                 else:
                     if(str[2] == 'INDI'):
                         indi_on = 1
-                        individual[0] = (str[1])                       
+                        individual[0] = (str[1])
+                    if(str[2] == 'FAM'):
+                        fam_on = 1
+                        family[0] = (str[1])
             if(str[0] == '1'):
                 if(str[1] == 'NAME'):
                     individual[1] = str[2] + " " + getLastName(str[3])
@@ -72,21 +101,32 @@ def gedcomParse(file_name):
                     individual[5].append(str[2])
                 if(str[1] == 'FAMC'):
                     individual[6] = str[2]
+                if(str[1] == 'HUSB'):
+                    family[1] = str[2]
+                if(str[1] == 'WIFE'):
+                    family[2] = str[2]
+                if(str[1] == 'CHIL'):
+                    family[5].append(str[2])
                 if(str[1] in ['BIRT', 'DEAT', 'MARR', 'DIV']):
                     date_id = str[1]                                
             if(str[0] == '2'):
                 if(str[1] == 'DATE'):
                     date = str[4] + " " + str[3] + " " + str[2]
+                    if(date_id == 'MARR'):
+                        family[3] = convertDateFormat(date)
+                    if(date_id == 'DIV'):
+                        family[4] = convertDateFormat(date)
                     if(date_id == 'BIRT'):
                         individual[3] = convertDateFormat(date)
                     if(date_id == 'DEAT'):
                         individual[4] = convertDateFormat(date)
-    return list_individual
+                    
+    return list_individual,list_family
 
-def main(file_name):
-    list_individual= gedcomParse(file_name)
+def main(gedFileName):
+    list_individual, list_family= gedcomParse(gedFileName)
     list_individual.sort()
-    birthBeforeDeath(list_individual)
+    list_family.sort()
+    individualAges(list_individual)
 
-fileInput = 'project02_gedcom.ged'
-main(fileInput)
+main('project02_gedcom.ged')
