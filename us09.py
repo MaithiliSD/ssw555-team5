@@ -1,5 +1,6 @@
-# By Sachin MC Reddy
 from project03 import indi_list,fam_list,calculateAge,splitBdate,isAlive
+
+
 
 def US09(): #US09 Birth before death of parents
     result= False  

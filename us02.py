@@ -2,6 +2,7 @@
 ## Maithili Deshmukh
 
 import datetime
+import unittest
 
 # individual list
 def individualList():
@@ -16,7 +17,7 @@ def familyList():
     famList[5] = []
     return famList
 
-# get last name
+#get last name
 def lastName(s):
     temp=''
     for i in s:
@@ -129,11 +130,46 @@ def gedcomParse(file_name):
                         famData[4] = convertDateFormat(date)
     return indindiListData, famListData
 
+class TestBirthBeforeMarriage(unittest.TestCase):
+    
+    def test_birth_marriage(self):
+        indiListData, famListData = gedcomParse("project02_copy.ged")
+        indiListData.sort()
+        famListData.sort()
+        outputList = birthBeforeMarriage(indiListData, famListData)
+        lenOutput = len(outputList);
+        self.assertEqual(lenOutput, 0, "Should be 0")
+        
+    def test_birth_marriage_2(self):
+        indiListData, famListData = gedcomParse("project02_copy.ged")
+        indiListData.sort()
+        famListData.sort()
+        outputList = birthBeforeMarriage(indiListData, famListData)
+        lenOutput = len(outputList);
+        self.assertTrue((lenOutput==0), "Should be True")
+        
+    def test_birth_marriage_3(self):
+        indiListData, famListData = gedcomParse("project02_copy.ged")
+        indiListData.sort()
+        famListData.sort()
+        outputList = birthBeforeMarriage(indiListData, famListData)
+        lenOutput = len(outputList);
+        self.assertFalse((lenOutput>0), "Should be False")
+        
+    def test_birth_marriage_4(self):
+        indiListData, famListData = gedcomParse("project02_copy.ged")
+        indiListData.sort()
+        famListData.sort()
+        outputList = birthBeforeMarriage(indiListData, famListData)
+        lenOutput = len(outputList);
+        self.assertIs(lenOutput, 0, "Should be 0")
+
 def main(file_name):
     indiListData, famListData = gedcomParse(file_name)
     indiListData.sort()
     famListData.sort()
     birthBeforeMarriage(indiListData, famListData)
+    # unittest.main()
 
    
 fileInput = 'project02_gedcom.ged'

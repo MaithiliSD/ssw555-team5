@@ -36,15 +36,7 @@ def us37(indi,fam):
                             x.add_row([name1,val,fid,gen])
     print(x)
               
-    
-    
-
-        
-
-
 def main()->None:
-   
-    
     us37(indi_list,fam_list)
 
 if __name__ == "__main__":

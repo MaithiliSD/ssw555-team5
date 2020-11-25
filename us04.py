@@ -133,10 +133,10 @@ class TestDivorceMarriage(unittest.TestCase):
         self.assertIs(lenOfList, 0, "Should be 0")
 
 def main(gedFileName):
-    # list_individual, list_family= gedcomParse(gedFileName)
-    # list_individual.sort()
-    # list_family.sort()
-    # marriageBeforeDivorce(list_family)
-    unittest.main()
+    list_individual, list_family= gedcomParse(gedFileName)
+    list_individual.sort()
+    list_family.sort()
+    marriageBeforeDivorce(list_family)
+    # unittest.main()
 
 main('project02_gedcom.ged')

@@ -121,6 +121,5 @@ def main(fileName):
     list_indi, list_fam = parseTheFile(fileName)
     list_indi.sort()
     list_fam.sort()
-    MarriageBeforeDeath(list_fam, list_indi)
     DivorceBeforeDeath(list_fam, list_indi)
-main('/Users/MSI/Desktop/Exam/Sem3/SSW555/project/Home_work5/project04_gedcom.ged')
+main('project02_gedcom.ged')

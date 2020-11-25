@@ -40,6 +40,9 @@ def convertDateFormat(date):
     m[1] = str(dt.month)
     return (m[0] + '-' + m[1] + '-' + m[2])
 
+def getMonth(monthStr):
+    full_date = datetime.datetime.strptime(monthStr, "%b")
+    return full_date.month
 
 # us13
 def SiblingsSpacing(famListData, indiListData):
@@ -61,16 +64,16 @@ def SiblingsSpacing(famListData, indiListData):
 def difference_months(dateData1, dateData2):
     temp1 = dateData1.split('-')
     temp2 = dateData2.split('-')
-    ndateData1 = datetime.date(int(temp1[0]), int(temp1[1]), int(temp1[2]))
-    ndateData2 = datetime.date(int(temp2[0]), int(temp2[1]), int(temp2[2]))
+    ndateData1 = datetime.date(int(temp1[0]), int(getMonth(temp1[1])), int(temp1[2]))
+    ndateData2 = datetime.date(int(temp2[0]), int(getMonth(temp2[1])), int(temp2[2]))
     return int((ndateData1 - ndateData2).days / 30.4)
 
 # calculate difference in days
 def difference_days(dateData1, dateData2):
     temp1 = dateData1.split('-')
     temp2 = dateData2.split('-')
-    ndateData1 = datetime.date(int(temp1[0]), int(temp1[1]), int(temp1[2]))
-    ndateData2 = datetime.date(int(temp2[0]), int(temp2[1]), int(temp2[2]))
+    ndateData1 = datetime.date(int(temp1[0]), int(getMonth(temp1[1])), int(temp1[2]))
+    ndateData2 = datetime.date(int(temp2[0]), int(getMonth(temp2[1])), int(temp2[2]))
     return abs(int((ndateData1 - ndateData2).days))
 
 # parsing the gedcom file 

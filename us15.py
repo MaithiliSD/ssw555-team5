@@ -102,9 +102,9 @@ def fewerThan15Siblings(fam_list):
             siblings.append(i[0])
             print(" The family has 15 or more siblings ")
     if(len(siblings)==0):
-        print(" There are no families with 15 or more siblings ")
+        print("There are no families with 15 or more siblings:")
     else:
-        print(" The families with 15 or more siblings given below ")
+        print("The families with 15 or more siblings given below:")
         print(siblings)
 
 
@@ -115,4 +115,4 @@ def main(file_name):
     indi_list.sort()
     fewerThan15Siblings(fam_list)
 
-main('/Users/MSI/Desktop/Exam/Sem3/SSW555/project/Home_work5/project04_gedcom.ged')
+main('project02_gedcom.ged')

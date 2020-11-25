@@ -1,0 +1,119 @@
+Individuals
++-------+----------------+-----+-------------+-----+-------+-------------+--------+-------+
+|   ID  |      Name      | Sex |  Birth Date | Age | Alive |  Death Date | Spouse | Child |
++-------+----------------+-----+-------------+-----+-------+-------------+--------+-------+
+| @I10@ | Carol Johnson  |  F  |  1970 JUN 4 |  50 | False | 1819 FEB 15 |   NA   |  @F4@ |
+| @I11@ | George Johnson |  M  |  1979 APR 4 |  41 |  True |      NA     |   NA   |  @F2@ |
+|  @I1@ | William Smith  |  M  | 1986 JAN 10 |  34 |  True |      NA     |   NA   |  @F1@ |
+|  @I2@ |  James Smith   |  M  |  1970 APR 7 |  50 |  True |      NA     |  @F1@  |   NA  |
+|  @I3@ |  Mary Johnson  |  F  |  1974 FEB 3 |  46 |  True |      NA     |  @F1@  |  @F2@ |
+|  @I4@ |  Serena Smith  |  F  |  1992 MAY 4 |  28 |  True |      NA     |  @F3@  |  @F1@ |
+|  @I5@ | Robert Johnson |  M  | 1939 NOV 10 |  80 |  True |      NA     |  @F4@  |   NA  |
+|  @I6@ |  Linda Brown   |  F  |  1945 APR 3 |  75 |  True |      NA     |  @F2@  |   NA  |
+|  @I7@ |  Lisa Miller   |  F  | 1950 AUG 24 |  70 |  True |      NA     |  @F4@  |   NA  |
+|  @I8@ | Anthony Taylor |  M  | 1987 FEB 11 |  33 |  True |      NA     |  @F3@  |   NA  |
+|  @I9@ |  James Taylor  |  M  |  2018 JAN 3 |  2  |  True |      NA     |   NA   |  @F3@ |
++-------+----------------+-----+-------------+-----+-------+-------------+--------+-------+
+Families
++------+-------------+-------------+------------+----------------+--------+--------------+-------------------+
+|  ID  |   Married   |   Divorced  | Husband ID | Husband's Name | Wif ID | Wife's Name  |      Children     |
++------+-------------+-------------+------------+----------------+--------+--------------+-------------------+
+| @F1@ |  1991 MAR 7 |      NA     |    @I2@    |  James Smith   |  @I3@  | Mary Johnson |  ['@I1@', '@I4@'] |
+| @F2@ |  1940 AUG 6 | 1985 OCT 17 |    @I5@    | Robert Johnson |  @I6@  | Linda Brown  | ['@I3@', '@I11@'] |
+| @F3@ | 2015 AUG 20 |      NA     |    @I8@    | Anthony Taylor |  @I4@  | Serena Smith |      ['@I9@']     |
+| @F4@ |  1987 JUN 8 |      NA     |    @I5@    | Robert Johnson |  @I7@  | Lisa Miller  |     ['@I10@']     |
++------+-------------+-------------+------------+----------------+--------+--------------+-------------------+
+ERROR: INDIVIDUAL: US02: Linda Brown birth date 1945-04-03 after marriage date 1940-08-06
+ERROR: INDIVIDUAL: US03: @I10@: Died 1819-02-15 before born 1970-06-04
+There are no families having their marriage dates before the death dates of their husband/wife.
+There are no divorce after the death dates :)
+ERROR: INDIVIDUAL: US03: @I10@: Died 1819 FEB 15 before born 1970 JUN 4
+There are no families having their marriage dates before the death dates of their husband/wife.
+There are no divorce after the death dates :)
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1970 JUN 4
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1979 APR 4
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1986 JAN 10
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1970 APR 7
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1974 FEB 3
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1992 MAY 4
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1939 NOV 10
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1945 APR 3
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1950 AUG 24
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 1987 FEB 11
+INDIVIDUAL: US07:  Less than 150 years old: Birth date 2018 JAN 3
+US- 08- Birth before marriage of parents, running
+Child was born before marriage 
+Child was born after marriage
+Child was born after marriage
+Child was born after marriage
+Child was born after marriage
+Child was born before marriage 
+US- 09 Birth before death of parents
+Child's Birth before death of parents
+Child's Birth before death of parents
+Child's Birth before death of parents
+Child's Birth before death of parents
+Parent age is greater than 14
+Child marriage
+Parent age is greater than 14
+Parent age is greater than 14
+There are no families with 15 or more siblings:
+No individual with incorrect gender roles 
+INDIVIDUAL: US27: sCarol Johnson with age: -151
+INDIVIDUAL: US27: George Johnson with age: 41
+INDIVIDUAL: US27: William Smith with age: 34
+INDIVIDUAL: US27: James Smith with age: 50
+INDIVIDUAL: US27: Mary Johnson with age: 46
+INDIVIDUAL: US27: Serena Smith with age: 28
+INDIVIDUAL: US27: Robert Johnson with age: 81
+INDIVIDUAL: US27: Linda Brown with age: 75
+INDIVIDUAL: US27: Lisa Miller with age: 70
+INDIVIDUAL: US27: Anthony Taylor with age: 33
+INDIVIDUAL: US27: James Taylor with age: 2
+There are no families with 15 or more siblings:
+No individual with incorrect gender roles 
+['Carol Johnson', 'George Johnson', 'William Smith', 'James Smith', 'Mary Johnson', 'Serena Smith', 'Robert Johnson', 'Linda Brown', 'Lisa Miller', 'Anthony Taylor', 'James Taylor'] ['1970 JUN 4', '1979 APR 4', '1986 JAN 10', '1970 APR 7', '1974 FEB 3', '1992 MAY 4', '1939 NOV 10', '1945 APR 3', '1950 AUG 24', '1987 FEB 11', '2018 JAN 3']
+['@F1@', '@F3@', '@F4@', '@F2@']
+INDIVIDUAL: US27: sCarol Johnson with age: -151
+INDIVIDUAL: US27: George Johnson with age: 41
+INDIVIDUAL: US27: William Smith with age: 34
+INDIVIDUAL: US27: James Smith with age: 50
+INDIVIDUAL: US27: Mary Johnson with age: 46
+INDIVIDUAL: US27: Serena Smith with age: 28
+INDIVIDUAL: US27: Robert Johnson with age: 81
+INDIVIDUAL: US27: Linda Brown with age: 75
+INDIVIDUAL: US27: Lisa Miller with age: 70
+INDIVIDUAL: US27: Anthony Taylor with age: 33
+
+INDIVIDUAL: US27: James Taylor with age: 2
+Individuals who are married and alive are: 
+ ['@I2@', '@I3@', '@I5@', '@I6@', '@I8@', '@I4@', '@I7@']
+ID:@I2@ with name James Smith is married with family ['@F1@']
+ID:@I3@ with name Mary Johnson is married with family ['@F1@']
+ID:@I5@ with name Robert Johnson is married with family ['@F2@', '@F4@']
+ID:@I6@ with name Linda Brown is married with family ['@F2@']
+ID:@I8@ with name Anthony Taylor is married with family ['@F3@']
+ID:@I4@ with name Serena Smith is married with family ['@F3@']
+ID:@I7@ with name Lisa Miller is married with family ['@F4@']
+Deceased individuals list is :  ['@I10@']
+Individual with ID @I10@ and name Carol Johnson passed away on 1819-02-15
+INDIVIDUAL: US31: @I1@: William Smith lives single.
+INDIVIDUAL: US31: @I9@: James Taylor lives single.
+INDIVIDUAL: US31: @I11@: George Johnson lives single.
+
+Individuals who are married and alive are: 
+ ['@I2@', '@I3@', '@I5@', '@I6@', '@I8@', '@I4@', '@I7@']
+ID:@I2@ with name James Smith is married with family @F1@
+ID:@I3@ with name Mary Johnson is married with family @F1@
+ID:@I5@ with name Robert Johnson is married with family @F4@
+ID:@I6@ with name Linda Brown is married with family @F2@
+ID:@I8@ with name Anthony Taylor is married with family @F3@
+ID:@I4@ with name Serena Smith is married with family @F3@
+ID:@I7@ with name Lisa Miller is married with family @F4@
+Deceased individuals list is :  ['@I10@']
+Individual with ID @I10@ and name Carol Johnson passed away on 1819 FEB 15
++------+-----------------------+-----------+--------+
+| Name | HUSBAND/WIFE/CHILDREN | FAMILY_ID | GENDER |
++------+-----------------------+-----------+--------+
++------+-----------------------+-----------+--------+
+2020-11-10 Robert Johnson
