@@ -105,14 +105,14 @@ def correctGenderForRole(indi_list, fam_list):
     for i in fam_list:
         if(getGenderID(indi_list, i[2]) != 'F'):
             genders.append(i[2])
-            print(" Female individual has incorrect gender role ")
+            print("Female individual has incorrect gender role ")
         if(getGenderID(indi_list, i[1]) != 'M'):
             genders.append(i[1])
-            print(" Male individual has incorrect Gender role ")      
+            print("Male individual has incorrect Gender role ")      
     if(len(genders) != 0):
-        print(" Individual with incorrect gender role are present ")
+        print("Individual with incorrect gender role are present ")
     else:
-        print(" No individual with incorrect gender roles ")
+        print("No individual with incorrect gender roles ")
 
 
 def main(file_name):
@@ -122,4 +122,4 @@ def main(file_name):
     indi_list.sort()
     correctGenderForRole(indi_list, fam_list)
 
-main('/Users/MSI/Desktop/Exam/Sem3/SSW555/project/Home_work5/project04_gedcom.ged')
+main('project02_gedcom.ged')

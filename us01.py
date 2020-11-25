@@ -64,7 +64,7 @@ def DatesBeforeCurrentDate(indiListData, famListData):
     for indi in indiListData:
         if(indi[3] > todayDate):
             dateList.append(indi[3])
-            print("ERROR: INDIVIDUAL: US01: " + indi[0] + ": Birhtday " + indi[3] + " occurs in future.")
+            print("ERROR: INDIVIDUAL: US01: " + indi[0] + ": Birthday " + indi[3] + " occurs in future.")
         if(indi[4] != 0):
             if(indi[4] > todayDate):
                 dateList.append(indi[4])

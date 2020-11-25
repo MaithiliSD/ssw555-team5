@@ -129,19 +129,19 @@ indi_list, fam_list = gedcomRead("project02_gedcom.ged")
 indi_list.sort()
 fam_list.sort()
 
-indiTable = PrettyTable(["ID", "Name" , "Sex", "Birth Date", "Age" ,  "Alive" , "Death Date" , "Spouse" , "Child"])
+# indiTable = PrettyTable(["ID", "Name" , "Sex", "Birth Date", "Age" ,  "Alive" , "Death Date" , "Spouse" , "Child"])
 
-#adding the details about individuals to the table
-for i in indi_list:
-    indiTable.add_row([i[0] , i[1], i[2] , i[3], calculateAge(splitBdate(i[3])) , isAlive(i[4]) , convertToNA(i[4]) , convertToNA(i[5]) , convertToNA(i[6])])
+# #adding the details about individuals to the table
+# for i in indi_list:
+#     indiTable.add_row([i[0] , i[1], i[2] , i[3], calculateAge(splitBdate(i[3])) , isAlive(i[4]) , convertToNA(i[4]) , convertToNA(i[5]) , convertToNA(i[6])])
 
-print("Individials")
-print (indiTable)
+# print("Individials")
+# print (indiTable)
 
-famTable = PrettyTable(["ID", "Married", "Divorced", "Husband ID", "Husband's Name" , "Wif ID" , "Wife's Name" , "Children"])
-#adding Husband's and wife's details to the table
-for i in fam_list:
-    famTable.add_row([i[0] , i[3] , convertToNA(i[4]) , i[1] , getNameByID(indi_list,i[1]) , i[2] , getNameByID(indi_list,i[2]) , i[5]])
+# famTable = PrettyTable(["ID", "Married", "Divorced", "Husband ID", "Husband's Name" , "Wif ID" , "Wife's Name" , "Children"])
+# #adding Husband's and wife's details to the table
+# for i in fam_list:
+#     famTable.add_row([i[0] , i[3] , convertToNA(i[4]) , i[1] , getNameByID(indi_list,i[1]) , i[2] , getNameByID(indi_list,i[2]) , i[5]])
 
-print("Families")
-print (famTable)
+# print("Families")
+# print (famTable)

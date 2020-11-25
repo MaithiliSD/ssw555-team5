@@ -1,10 +1,6 @@
-from project3 import indi_list,fam_list,calculateAge
-from datetime import datetime,date
-from dateutil.relativedelta import relativedelta
-import datetime
+from project03 import indi_list,fam_list,calculateAge
 
 def us17(indi,fam):
-    print("US17: No marriages to descendants runninng")
     parents=dict()
     for f in fam:
         for child in f[5]:
@@ -19,7 +15,6 @@ def us17(indi,fam):
             print("ERROR us17 {f[0]}: wife {f[2]} is mariied to child {f[1]}")
             print("US17 complete")
             return False
-    print("US17: complete")
     return True
 
 def main()->None:
@@ -27,4 +22,3 @@ def main()->None:
 
 if __name__ == "__main__":
     main()
-

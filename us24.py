@@ -1,13 +1,11 @@
-from project03 import indi_list,fam_list,calculate_age,split_date,is_alive,i,convert_na
+from project03 import indi_list, convertToNA
 
-
-
-def US24(indi_list): #US23 Unique families by spouses  
+def us24(indi_list): #US23 Unique families by spouses  
     name_list = []
     unique_spouses = []
     
     for i in indi_list:
-        name_list.append(str(convert_na(i[5])))
+        name_list.append(str(convertToNA(i[5])))
         
     for x in name_list:
         if x not in unique_spouses and  x != "NA":
@@ -16,8 +14,7 @@ def US24(indi_list): #US23 Unique families by spouses
 
 
 def main()->None:
-   
-    US24(indi_list)
+   us24(indi_list)
 
 if __name__ == "__main__":
     main()

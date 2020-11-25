@@ -1,4 +1,3 @@
-# by Sachin MC Reddy
 from project03 import indi_list,fam_list,calculateAge,splitBdate,isAlive
 
 

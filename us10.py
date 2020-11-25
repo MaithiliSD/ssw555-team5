@@ -1,4 +1,4 @@
-from project3 import indi_list,fam_list,calculateAge
+from project03 import indi_list,fam_list,calculateAge
 from datetime import datetime,date
 from dateutil.relativedelta import relativedelta
 import datetime
@@ -70,7 +70,6 @@ def wifeage(value1,md,indi):
                 return timewd
 
 def us10(indi, fam):
-    print("US 10 - Marriage should be after 14 years of age, Runnning")
     for f in fam:
         
         hd=husbandage(f[1],f[3],indi)

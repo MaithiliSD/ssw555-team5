@@ -1,4 +1,4 @@
-from project3 import indi_list,fam_list,calculateAge
+from project03 import indi_list,fam_list,calculateAge
 from datetime import datetime,date
 from dateutil.relativedelta import relativedelta
 import datetime
@@ -15,8 +15,6 @@ def us38(indi,fam):
             print(birth_day, individual[1])
 
 def main()->None:
-   
-    
     us38(indi_list,fam_list)
     
 

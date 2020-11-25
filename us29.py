@@ -157,4 +157,4 @@ def main(file_name):
     living_married(indi_list, fam_list)
 
 
-main('/Users/MSI/Desktop/Exam/Sem3/SSW555/project/Home_work5/project04_gedcom.ged')
+main('project02_gedcom.ged')
