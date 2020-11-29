@@ -1,21 +1,9 @@
-from project03 import indi_list,fam_list,calculateAge,splitBdate,isAlive
-import datetime
-
-
-
-
-def recentBirthList(list_individual):
-    recentBirthList = []
-    for i in list_individual:
-        if(i[3] != 0):
-            dateOfBirth = i[3]
-            dateB = datetime.strptime(dateOfBirth, "%Y-%m-%d")
-            delta = datetime.date(datetime.now()) - datetime.date(dateB)
-        if delta.days < 30 and delta.days >= 0:
-            recentBirthList.add(i[0])
-            print("User story 35, the individual"+ i[0] + "is born recently ")
-    if (len(recentBirthList) != 0):
-        print("User story 34, the following individuals are born recently")
-        print(recentBirthList)
-    else:
-        print("User story 34,there are no individuals who are born recently")     
+def age_list(indi_list):
+    '''Printing the Age list'''
+    age_list = []
+    for individual in indi_list:
+        if individual[4] != 0:
+            age_list.append(individual[0])
+    print("Deceased individuals list is : ", death_list)
+    for i in age_list:
+        print("Individual with ID " + i + " and name " + name_by_id(indi_list, i) + " passed away on " + death_date(indi_list, i))
